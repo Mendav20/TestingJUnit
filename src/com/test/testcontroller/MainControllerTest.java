@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
@@ -20,7 +19,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.test.configuration.MvcConfiguration;
@@ -29,21 +27,20 @@ import com.test.model.Book;
 import com.test.service.BookService;
 
 
-@SuppressWarnings("deprecation")
 @RunWith(SpringRunner.class)
 @WebMvcTest(MainController.class)
 @ContextConfiguration(classes = MvcConfiguration.class)
 public class MainControllerTest {
 	
-	@Before
-	public void setup() {
-		MainController controller = new MainController();
-		this.mock = MockMvcBuilders.standaloneSetup(controller).build();
-	}
+	/*
+	 * @Before public void setup() { MainController controller = new
+	 * MainController(); this.mock =
+	 * MockMvcBuilders.standaloneSetup(controller).build(); }
+	 */
 
 	@Autowired
 	private MockMvc mockMvc;
-	private MockMvc mock;
+	
 	
 	@MockBean
 	private BookService bookService;
